@@ -1,292 +1,674 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Legesty City</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legesty City - أقوى سيرفر رول بلاي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif; scroll-behavior:smooth; }
+    
+    body { 
+      background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 50%, #bbdefb 100%);
+      color: #1976d2; 
+      line-height:1.6; 
+      min-height:100vh; 
+      overflow-x:hidden; 
+      position:relative; 
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(25, 118, 210, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(33, 150, 243, 0.1) 0%, transparent 50%);
+      animation: bgPulse 8s ease-in-out infinite;
+      z-index: 0;
+    }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Tajawal',sans-serif}
-body{background:#f4fbff;color:#033f63;text-align:center;overflow-x:hidden}
+    @keyframes bgPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
 
-/* ================= Splash ================= */
-#splash{
-  position:fixed;inset:0;
-  background:linear-gradient(135deg,#0c77a1,#16b2c0);
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  color:#fff;z-index:9999;transition:.8s ease;
-}
-#splash h1{font-size:3rem}
-#enter{
-  margin-top:2rem;
-  padding:1rem 3rem;
-  border:none;
-  border-radius:40px;
-  background:#fff;
-  color:#0c77a1;
-  font-weight:700;
-  cursor:pointer;
-  transition:.3s
-}
-#enter:hover{transform:scale(1.1)}
-.hide{opacity:0;pointer-events:none}
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(25, 118, 210, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(25, 118, 210, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-/* ================= Sections ================= */
-section{padding:4rem 1rem}
-h1{font-size:3rem;color:#0f5bbf}
-h2{margin:2rem 0;font-size:2.4rem}
+    .container { 
+      width:90%; 
+      max-width:1400px; 
+      margin:auto; 
+      position:relative; 
+      z-index:1; 
+    }
 
-/* ================= Hierarchy Line ================= */
-.line{
-  width:4px;height:60px;
-  background:linear-gradient(to bottom,gold,#ccc);
-  margin:1rem auto;
-  border-radius:10px;
-}
+    /* Header - Static */
+    header { 
+      background: rgba(255, 255, 255, 0.98); 
+      backdrop-filter: blur(20px); 
+      border-bottom: 3px solid #2196f3; 
+      box-shadow: 0 5px 30px rgba(33, 150, 243, 0.3);
+      padding: 1.5rem 0;
+      animation: slideDown 0.8s ease-out;
+      position: relative;
+      z-index: 100;
+    }
 
-/* ================= Staff Cards ================= */
-.staff{
-  margin:auto;
-  background:#fff;
-  border-radius:2rem;
-  padding:2rem;
-  width:260px;
-  box-shadow:0 10px 30px rgba(0,0,0,.15);
-  animation:fadeUp .8s ease forwards;
-  transition:.3s;
-}
-.staff:hover{transform:scale(1.07)}
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes glow{
-  0%{box-shadow:0 0 15px gold}
-  50%{box-shadow:0 0 40px gold}
-  100%{box-shadow:0 0 15px gold}
-}
+    @keyframes slideDown {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-.owner{width:340px;border:4px solid gold;animation:glow 2.5s infinite}
-.founder{border:4px solid #8e44ad;width:300px}
-.admin-high{border:4px solid #e74c3c;width:280px}
-.admin-semi{border:4px solid #f39c12}
-.admin-mid{border:4px solid #2980b9}
-.admin-low{border:4px solid #27ae60}
+    .header-content {
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      flex-wrap: wrap;
+      width: 90%;
+      max-width: 1400px;
+      margin: auto;
+    }
 
-.icon{
-  width:70px;height:70px;margin:auto auto 1rem;
-  border-radius:1.5rem;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;
-}
-.owner .icon{background:gold;color:#333}
-.founder .icon{background:#8e44ad}
-.admin-high .icon{background:#e74c3c}
-.admin-semi .icon{background:#f39c12}
-.admin-mid .icon{background:#2980b9}
-.admin-low .icon{background:#27ae60}
+    header h1 { 
+      font-size: 2.5rem; 
+      font-weight: 900; 
+      background: linear-gradient(135deg, #1976d2 0%, #2196f3 50%, #42a5f5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 3px;
+      text-shadow: 0 2px 10px rgba(33, 150, 243, 0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
 
-.staff h3{font-size:1.4rem}
-.staff p{font-weight:700}
-.row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+    @keyframes glow {
+      from { filter: brightness(1); }
+      to { filter: brightness(1.2); }
+    }
 
-/* ================= Social ================= */
-.socials{
-  margin-top:4rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap
-}
-.social-btn{
-  display:flex;align-items:center;gap:.7rem;
-  padding:1rem 2.5rem;border-radius:40px;text-decoration:none;color:#fff;font-weight:700;transition:.4s;
-}
-.discord{background:#5865F2}
-.roblox{background:#111}
-.copy{background:#0c77a1;border:none;cursor:pointer}
-.social-btn:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    nav { 
+      display: flex; 
+      gap: 1rem; 
+      flex-wrap: wrap; 
+    }
 
-/* ================= Stats ================= */
-.stat h3{font-size:2rem}
+    nav button { 
+      background: linear-gradient(135deg, #2196f3, #42a5f5); 
+      border: 2px solid #1976d2; 
+      font-weight: 700; 
+      font-size: 1rem; 
+      padding: 0.8rem 1.8rem; 
+      border-radius: 50px; 
+      cursor: pointer; 
+      transition: all 0.4s ease; 
+      color: #ffffff; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      box-shadow: 0 5px 20px rgba(33, 150, 243, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
 
-/* Mobile */
-@media(max-width:768px){
-  h1{font-size:2.2rem}
-  .staff,.owner,.founder{width:90%}
-}
-</style>
+    nav button i {
+      margin-left: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    nav button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    nav button:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    nav button:hover { 
+      background: linear-gradient(135deg, #1976d2, #2196f3); 
+      transform: translateY(-3px) scale(1.05); 
+      box-shadow: 0 10px 40px rgba(33, 150, 243, 0.6);
+    }
+
+    /* Hero Section */
+    .hero { 
+      text-align: center; 
+      padding: 8rem 0 6rem 0;
+      animation: fadeInUp 1.2s ease-out;
+      position: relative;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(33, 150, 243, 0.1), transparent);
+      border-radius: 50%;
+      z-index: -1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+      50% { transform: translate(-50%, -50%) translateY(-30px); }
+    }
+
+    .hero h2 { 
+      font-size: 5rem; 
+      font-weight: 900; 
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1976d2 0%, #42a5f5 50%, #2196f3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 4px;
+      animation: heroGlow 3s ease-in-out infinite;
+      text-shadow: 0 5px 20px rgba(33, 150, 243, 0.3);
+    }
+
+    @keyframes heroGlow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.3); }
+    }
+
+    .hero p { 
+      font-size: 1.8rem; 
+      margin-bottom: 3rem;
+      color: #1976d2;
+      font-weight: 700;
+    }
+
+    /* Feature Cards */
+    .feature-cards { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 2.5rem;
+      margin-top: 4rem;
+      padding: 0 2rem;
+    }
+
+    .card { 
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 2rem; 
+      padding: 3rem 2rem; 
+      text-align: center; 
+      box-shadow: 0 10px 40px rgba(33, 150, 243, 0.2);
+      transition: all 0.5s ease; 
+      color: #1976d2;
+      border: 2px solid rgba(33, 150, 243, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(33, 150, 243, 0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+    }
+
+    .card:hover::before {
+      left: 100%;
+    }
+
+    .card:hover { 
+      transform: translateY(-20px) scale(1.05); 
+      box-shadow: 0 20px 60px rgba(33, 150, 243, 0.4);
+      border-color: #2196f3;
+    }
+
+    .card-icon { 
+      width: 5rem; 
+      height: 5rem; 
+      margin: auto; 
+      background: linear-gradient(135deg, #2196f3, #42a5f5); 
+      border-radius: 1.5rem; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      color: #ffffff; 
+      margin-bottom: 1.5rem; 
+      transition: all 0.6s ease; 
+      font-size: 2.5rem;
+      box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4);
+    }
+
+    .card:hover .card-icon { 
+      transform: rotateY(360deg) scale(1.2); 
+      box-shadow: 0 15px 50px rgba(33, 150, 243, 0.6);
+    }
+
+    .card h3 { 
+      font-size: 3rem; 
+      font-weight: 900; 
+      margin-bottom: 0.8rem;
+      color: #1976d2;
+    }
+
+    .card p { 
+      font-size: 1.2rem; 
+      font-weight: 700; 
+      color: #1976d2;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Staff Section */
+    .staff-section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .staff-section h2 {
+      text-align: center; 
+      margin-bottom: 4rem;
+      font-size: 4rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 3px;
+    }
+
+    .staff-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 2.5rem; 
+      padding: 0 2rem;
+    }
+
+    .staff-card { 
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      border-radius: 2.5rem; 
+      padding: 3rem 2rem; 
+      text-align: center; 
+      box-shadow: 0 10px 50px rgba(33, 150, 243, 0.3);
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+      color: #1976d2;
+      border: 2px solid rgba(33, 150, 243, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .staff-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(33, 150, 243, 0.2), transparent);
+      transition: left 0.8s ease;
+    }
+
+    .staff-card:hover::before {
+      left: 100%;
+    }
+
+    .staff-card:hover { 
+      transform: translateY(-25px) scale(1.08); 
+      box-shadow: 0 25px 80px rgba(33, 150, 243, 0.5);
+      border-color: #2196f3;
+    }
+
+    .staff-icon { 
+      width: 7rem; 
+      height: 7rem; 
+      margin: auto; 
+      background: linear-gradient(135deg, #2196f3, #42a5f5); 
+      border-radius: 2rem; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      color: #ffffff; 
+      margin-bottom: 1.5rem; 
+      font-size: 3rem;
+      box-shadow: 0 15px 40px rgba(33, 150, 243, 0.4);
+      transition: all 0.6s ease;
+    }
+
+    .staff-card:hover .staff-icon {
+      transform: scale(1.2) rotate(360deg);
+      box-shadow: 0 20px 60px rgba(33, 150, 243, 0.7);
+    }
+
+    .staff-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      font-weight: 900;
+      color: #1976d2;
+      letter-spacing: 1px;
+    }
+
+    .staff-card p {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1976d2;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.95));
+      padding: 4rem 0 2rem 0; 
+      text-align: center; 
+      margin-top: 6rem;
+      border-top: 3px solid #2196f3;
+      box-shadow: 0 -5px 30px rgba(33, 150, 243, 0.2);
+    }
+
+    footer h3 {
+      margin-bottom: 2rem; 
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #1976d2, #2196f3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+    }
+
+    .footer-links {
+      display: flex; 
+      justify-content: center; 
+      gap: 2rem; 
+      flex-wrap: wrap; 
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      background: linear-gradient(135deg, #2196f3, #42a5f5); 
+      padding: 1.2rem 2.5rem; 
+      border-radius: 50px; 
+      color: #ffffff; 
+      text-decoration: none; 
+      display: flex; 
+      align-items: center; 
+      gap: 1rem; 
+      transition: all 0.5s ease; 
+      border: 2px solid #1976d2;
+      font-weight: 900;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 40px rgba(33, 150, 243, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-links a i {
+      font-size: 1.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-links a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .footer-links a:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+
+    .footer-links a:hover {
+      transform: translateY(-10px) scale(1.1);
+      box-shadow: 0 20px 60px rgba(33, 150, 243, 0.6);
+    }
+
+    .footer-links a span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 2px solid rgba(33, 150, 243, 0.2);
+    }
+
+    .copyright p {
+      font-size: 1rem;
+      color: #1976d2;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .copyright .brand {
+      font-size: 1.3rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #1976d2, #2196f3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+    }
+
+    /* Particles */
+    .particle {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background: rgba(33, 150, 243, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float-particle 10s infinite;
+      box-shadow: 0 0 10px rgba(33, 150, 243, 0.8);
+    }
+
+    @keyframes float-particle {
+      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .hero h2 { font-size: 3rem; }
+      .hero p { font-size: 1.3rem; }
+      header h1 { font-size: 1.8rem; }
+      .card h3 { font-size: 2rem; }
+      .staff-section h2 { font-size: 2.5rem; }
+      nav button { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+      .feature-cards, .staff-grid { padding: 0 1rem; gap: 1.5rem; }
+      .footer-links { gap: 1rem; }
+      .footer-links a { padding: 1rem 1.8rem; font-size: 1rem; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- ================= Splash ================= -->
-<div id="splash">
-  <h1>Legesty City</h1>
-  <p>تجربة رول بلاي احترافية</p>
-  <button id="enter">دخول</button>
-</div>
-
-<!-- ================= Main Content ================= -->
-<section id="main" style="opacity:0">
+  <!-- Particles -->
+  <div class="particle" style="left:10%;animation-delay:0s;"></div>
+  <div class="particle" style="left:25%;animation-delay:2s;"></div>
+  <div class="particle" style="left:40%;animation-delay:4s;"></div>
+  <div class="particle" style="left:55%;animation-delay:1s;"></div>
+  <div class="particle" style="left:70%;animation-delay:3s;"></div>
+  <div class="particle" style="left:85%;animation-delay:5s;"></div>
 
   <!-- Header -->
-  <h1>Legesty City</h1>
-  <h2>الهيكل الإداري</h2>
-
-  <!-- Owner -->
-  <div class="staff owner">
-    <div class="icon">👑</div>
-    <h3>SalehDev</h3>
-    <p>الأونر</p>
-  </div>
-  <div class="line"></div>
-
-  <!-- Founder -->
-  <div class="staff founder">
-    <div class="icon">🧰</div>
-    <h3>SXB226</h3>
-    <p>الفاوندر</p>
-  </div>
-  <div class="line"></div>
-
-  <!-- Admin High -->
-  <div class="staff admin-high">
-    <div class="icon">🚨</div>
-    <h3>wrtaha</h3>
-    <p>مسؤول الإدارة العليا</p>
-  </div>
-  <div class="line"></div>
-
-  <!-- Admin Semi -->
-  <div class="staff admin-semi">
-    <div class="icon">🛡️</div>
-    <h3>HXOOZL</h3>
-    <p>مسؤول شبه عليا</p>
-  </div>
-  <div class="line"></div>
-
-  <!-- Admin Mid + Low -->
-  <div class="row">
-    <div class="staff admin-mid">
-      <div class="icon">⚙️</div>
-      <h3>Scar00553</h3>
-      <p>مسؤول الإدارة الوسطى</p>
+  <header>
+    <div class="header-content">
+      <h1>LEGESTY CITY</h1>
+      <nav>
+        <button onclick="scrollToSection('hero')">
+          <i class="fas fa-home"></i>
+          الرئيسية
+        </button>
+        <button onclick="scrollToSection('staff')">
+          <i class="fas fa-users"></i>
+          المسؤولين
+        </button>
+        <button onclick="window.open('https://www.roblox.com/share?code=d15a87f96f4761479903749cdc3001b7&type=ExperienceDetails','_blank')">
+          <i class="fas fa-gamepad"></i>
+          روبلوكس
+        </button>
+        <button onclick="window.open('https://discord.gg/fm4','_blank')" style="background:linear-gradient(135deg,#5865f2,#7289da);border-color:#4752c4;">
+          <i class="fab fa-discord"></i>
+          ديسكورد
+        </button>
+      </nav>
     </div>
-    <div class="staff admin-low">
-      <div class="icon">🔰</div>
-      <h3>rip_abdo3mk6</h3>
-      <p>مسؤول الإدارة الصغرى</p>
-    </div>
-  </div>
+  </header>
 
-  <!-- Social -->
-  <div class="socials">
-    <a href="https://discord.gg/fm4" target="_blank" class="social-btn discord">
-      <i class="fa-brands fa-discord"></i> Discord
-    </a>
-    <button class="social-btn copy" onclick="copyDiscord()">
-      <i class="fa-solid fa-copy"></i> Copy Invite
-    </button>
-    <a href="https://www.roblox.com/share?code=d15a87f96f4761479903749cdc3001b7&type=ExperienceDetails&stamp=1767392319529"
-       target="_blank" class="social-btn roblox">
-      <i class="fa-brands fa-roblox"></i> Roblox Map
-    </a>
-  </div>
+  <!-- Hero Section -->
+  <section id="hero" class="hero container">
+    <h2>أقوى سيرفر رول بلاي</h2>
+    <p>تجربة أسطورية لا مثيل لها في عالم روبلوكس</p>
 
-  <!-- ================= Stats ================= -->
-  <section>
-    <h2>إحصائيات السيرفر</h2>
-    <div class="row">
-      <div class="staff admin-high stat">
-        <div class="icon">🛠️</div>
-        <h3 data-target="20">0</h3>
-        <p>عدد الإدارة</p>
+    <div class="feature-cards">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>20+</h3>
+        <p>إداريين محترفين</p>
       </div>
-      <div class="staff admin-mid stat">
-        <div class="icon">🔥</div>
-        <h3 data-target="581">0</h3>
-        <p>اللاعبين النشطين</p>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-users"></i></div>
+        <h3>550+</h3>
+        <p>لاعب نشط</p>
       </div>
-      <div class="staff admin-low stat">
-        <div class="icon">👥</div>
-        <h3 data-target="5388">0</h3>
-        <p>إجمالي اللاعبين</p>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-gem"></i></div>
+        <h3>VIP</h3>
+        <p>تجربة فاخرة</p>
       </div>
     </div>
   </section>
 
-  <!-- ================= About ================= -->
-  <section>
-    <h2>نبذة عن LC</h2>
-    <div class="staff" style="max-width:900px;margin:auto">
-      <p style="font-size:1.2rem;line-height:2">
-        <strong>Legesty City</strong> هو أفضل سيرفر رول بلاي في روبلوكس من حيث
-        البرمجة، التنظيم، والإدارة الاحترافية.
-        <br><br>
-        السيرفر يعتمد على أنظمة متطورة، واقعية عالية،
-        وتجربة لعب ممتعة تنافس أقوى السيرفرات.
-        <br><br>
-        <strong>أفضل برمجة – أفضل أداء – أفضل إدارة</strong><br>
-        المبرمج الرئيسي:
-        <span style="color:gold;font-weight:700">SalehDev</span>
-      </p>
+  <!-- Staff Section -->
+  <section id="staff" class="staff-section container">
+    <h2>النخبة - فريق المسؤولين</h2>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="staff-icon"><i class="fas fa-crown"></i></div>
+        <h3>SalehDev</h3>
+        <p>الأونر</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon"><i class="fas fa-fire"></i></div>
+        <h3>SXB226</h3>
+        <p>الفاوندر</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon"><i class="fas fa-user-shield"></i></div>
+        <h3>wrtaha</h3>
+        <p>مسؤول الإدارة</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon"><i class="fas fa-star"></i></div>
+        <h3>HXOOZL</h3>
+        <p>مسؤول شبه عليا</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Scar00553</h3>
+        <p>مسؤول الإدارة الوسطى</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon"><i class="fas fa-user-check"></i></div>
+        <h3>rip_abdo3mk6</h3>
+        <p>مسؤول الإدارة الصغرى</p>
+      </div>
     </div>
   </section>
 
-<!-- ================= UPDATES ================= -->
-<section>
-  <h2>Updates | تسريبات السيرفر</h2>
-  <div class="row">
-    <!-- فيديو 1 -->
-    <div class="staff admin-mid" style="max-width:360px">
-      <iframe src="https://www.tiktok.com/embed/7590575313206119700" width="100%" height="400" frameborder="0" allowfullscreen allow="autoplay"></iframe>
-      <p style="margin-top:1rem;font-weight:700">تسريب النظام الجديد</p>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <h3>انضم للأسطورة الآن</h3>
+      <div class="footer-links">
+        <a href="https://www.roblox.com/share?code=d15a87f96f4761479903749cdc3001b7&type=ExperienceDetails" target="_blank">
+          <i class="fas fa-gamepad"></i>
+          <span>العب على روبلوكس</span>
+        </a>
+        <a href="https://discord.gg/fm4" target="_blank" style="background:linear-gradient(135deg,#5865f2,#7289da);border-color:#4752c4;">
+          <i class="fab fa-discord"></i>
+          <span>انضم للديسكورد</span>
+        </a>
+      </div>
+      <div class="copyright">
+        <p>جميع الحقوق محفوظة © 2024-2025</p>
+        <p class="brand">LEGESTY CITY</p>
+      </div>
     </div>
+  </footer>
 
-    <!-- فيديو 2 -->
-    <div class="staff admin-mid" style="max-width:360px">
-      <iframe src="https://www.tiktok.com/embed/ZS5S8N6Kj" width="100%" height="400" frameborder="0" allowfullscreen allow="autoplay"></iframe>
-      <p style="margin-top:1rem;font-weight:700">تحديث الخريطة</p>
-    </div>
-
-    <!-- فيديو 3 -->
-    <div class="staff admin-mid" style="max-width:360px">
-      <iframe src="https://www.tiktok.com/embed/ZS5S8egBQ" width="100%" height="400" frameborder="0" allowfullscreen allow="autoplay"></iframe>
-      <p style="margin-top:1rem;font-weight:700">نظام إداري قادم</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= Scripts ================= -->
-<script>
-/* Splash */
-document.getElementById("enter").onclick=()=>{
-  document.getElementById("splash").classList.add("hide");
-  document.getElementById("main").style.opacity=1;
-};
-
-/* Copy Discord */
-function copyDiscord(){
-  navigator.clipboard.writeText("https://discord.gg/fm4");
-  alert("تم نسخ رابط الديسكورد ✅");
-}
-
-/* Counter */
-const counters = document.querySelectorAll("[data-target]");
-counters.forEach(counter=>{
-  let start = 0;
-  const target = +counter.dataset.target;
-  const speed = 40;
-  const update = ()=>{
-    start += Math.ceil(target / speed);
-    if(start < target){
-      counter.textContent = start.toLocaleString();
-      requestAnimationFrame(update);
-    } else {
-      counter.textContent = target.toLocaleString() + "+";
+  <script>
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      const offset = 120;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
-  };
-  update();
-});
-</script>
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+    document.querySelectorAll('.card, .staff-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.8s ease';
+      observer.observe(el);
+    });
+  </script>
 
 </body>
-</html></html>
+</html>
