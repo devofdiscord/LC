@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Legesty City - CFW 🔥 </title>
+
+  <!-- خط عربي جميل -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Tajawal', sans-serif; scroll-behavior: smooth; }
+    body { background-color: #fff; color: #07b3c9; line-height:1.6; }
+
+    .container { width:90%; max-width:1200px; margin:auto; }
+
+    /* Header */
+    header { position:sticky; top:0; background:rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-bottom:4px solid #0c7684; z-index:999; padding:1rem 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+    header h1 { font-size:2rem; font-weight:700; color:#0f5bbf; }
+    nav { display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; }
+    nav button { background:transparent; border:none; font-weight:700; padding:0.5rem 1rem; border-radius:50px; cursor:pointer; transition: all 0.3s ease; color:#2b73c6; }
+    nav button:hover { background:#0c77a1; color:#fff; transform:scale(1.1); }
+
+    .lang-select { margin-left:1rem; }
+    .lang-select select { padding:0.3rem 0.5rem; border-radius:10px; border:1px solid #447bab; font-weight:700; color:#00eaee; cursor:pointer; }
+
+    /* Hero */
+    .hero { text-align:center; padding:6rem 0; }
+    .hero h2, .hero p { color:#007acc; }
+    .hero h2 { font-size:4rem; font-weight:700; margin-bottom:1rem; } 
+    .hero p { font-size:1.5rem; margin-bottom:2rem; }
+
+    /* Feature Cards */
+    .feature-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; }
+    .card { background: rgba(255,255,255,0.95); border-radius:2rem; padding:2rem; text-align:center; box-shadow:0 8px 30px rgb(18, 167, 152); transition:transform 0.3s ease; color:#2cacd0; }
+    .card:hover { transform: translateY(-10px); }
+    .card-icon { width:4rem; height:4rem; margin:auto; background:#0a5f86; border-radius:1rem; display:flex; justify-content:center; align-items:center; color:#fff; margin-bottom:1rem; transition: all 0.3s ease; font-size:1.5rem; }
+    .card:hover .card-icon { transform: rotate(15deg) scale(1.1); }
+    .card h3 { font-size:2rem; font-weight:700; margin-bottom:0.5rem; }
+    .card p { font-size:1rem; }
+
+    /* Staff */
+    .staff-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin-top:3rem; }
+    .staff-card { background: rgba(255,255,255,0.95); border-radius:2rem; padding:2rem; text-align:center; box-shadow:0 8px 30px rgb(5, 131, 242); transition: all 0.3s ease; color:#1c69ad; }
+    .staff-card:hover { transform: translateY(-10px) scale(1.05); }
+    .staff-icon { width:6rem; height:6rem; margin:auto; background: #16b2c0; border-radius:1.5rem; display:flex; justify-content:center; align-items:center; color:#fff; margin-bottom:1rem; font-size:2rem; }
+
+    @media(max-width:768px){
+      .hero h2{font-size:3rem;}
+      .hero p{font-size:1.2rem;}
+      .card h3{font-size:1.5rem;}
+      .card p{font-size:0.9rem;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="container">
+    <h1 id="site-title">ليحستي سيتي  </h1>
+    <nav>
+      <button onclick="scrollToSection('hero')" id="nav-home">الرئيسية</button>
+      <button onclick="scrollToSection('about')" id="nav-about">عن السيرفر</button>
+      <button onclick="scrollToSection('vision')" id="nav-vision">الرؤية والرسالة</button>
+      <button onclick="scrollToSection('staff')" id="nav-staff">المسؤولين</button>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero container">
+    <h2 id="hero-title">مرحبا بكم في  ليجستي سيتي</h2>
+    <p id="hero-text">   افضل سيرفر رول بلاي في روبلوكس من ناحيه برمجيه و اداريه  </p>
+
+    <div class="feature-cards">
+      <div class="card">
+        <div class="card-icon">🚨</div>
+        <h3 id="card1-title">20+</h3>
+        <p id="card1-text">الاداريين </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧔</div>
+        <h3 id="card2-title">550+</h3>
+        <p id="card2-text">الاعببين</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⭐</div>
+        <h3 id="card3-title">2024 - 2025 </h3>
+        <p id="card3-text">تم بناء هذه السيرفر </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Staff Section -->
+  <section id="staff" class="container">
+    <h2 style="text-align:center; margin-top:3rem;" id="staff-title">فريق المسؤولين</h2>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="staff-icon">👑</div>
+        <h3 id="staff1-name"> صالح صلوحي </h3>
+        <p id="staff1-role"> الاونر و المسوول عن السيرفر</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon">🧰</div>
+        <h3 id="staff2-name"> باسل | SXB </h3>
+        <p id="staff2-role">الفاوندر </p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-icon">🚨</div>
+        <h3 id="staff3-name"> ابوصالح  </h3>
+        <p id="staff3-role"> مسوؤل الاداره العليا </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function scrollToSection(id)
+      document.getElementById(id).scrollIntoView({behavior:'smooth'});
+    
+  </script>
+
+</body>
+</html>
