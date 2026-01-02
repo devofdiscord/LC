@@ -1,120 +1,292 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Legesty City - CFW 🔥 </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legesty City</title>
 
-  <!-- خط عربي جميل -->
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Tajawal', sans-serif; scroll-behavior: smooth; }
-    body { background-color: #fff; color: #07b3c9; line-height:1.6; }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Tajawal',sans-serif}
+body{background:#f4fbff;color:#033f63;text-align:center;overflow-x:hidden}
 
-    .container { width:90%; max-width:1200px; margin:auto; }
+/* ================= Splash ================= */
+#splash{
+  position:fixed;inset:0;
+  background:linear-gradient(135deg,#0c77a1,#16b2c0);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  color:#fff;z-index:9999;transition:.8s ease;
+}
+#splash h1{font-size:3rem}
+#enter{
+  margin-top:2rem;
+  padding:1rem 3rem;
+  border:none;
+  border-radius:40px;
+  background:#fff;
+  color:#0c77a1;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s
+}
+#enter:hover{transform:scale(1.1)}
+.hide{opacity:0;pointer-events:none}
 
-    /* Header */
-    header { position:sticky; top:0; background:rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-bottom:4px solid #0c7684; z-index:999; padding:1rem 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
-    header h1 { font-size:2rem; font-weight:700; color:#0f5bbf; }
-    nav { display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; }
-    nav button { background:transparent; border:none; font-weight:700; padding:0.5rem 1rem; border-radius:50px; cursor:pointer; transition: all 0.3s ease; color:#2b73c6; }
-    nav button:hover { background:#0c77a1; color:#fff; transform:scale(1.1); }
+/* ================= Sections ================= */
+section{padding:4rem 1rem}
+h1{font-size:3rem;color:#0f5bbf}
+h2{margin:2rem 0;font-size:2.4rem}
 
-    .lang-select { margin-left:1rem; }
-    .lang-select select { padding:0.3rem 0.5rem; border-radius:10px; border:1px solid #447bab; font-weight:700; color:#00eaee; cursor:pointer; }
+/* ================= Hierarchy Line ================= */
+.line{
+  width:4px;height:60px;
+  background:linear-gradient(to bottom,gold,#ccc);
+  margin:1rem auto;
+  border-radius:10px;
+}
 
-    /* Hero */
-    .hero { text-align:center; padding:6rem 0; }
-    .hero h2, .hero p { color:#007acc; }
-    .hero h2 { font-size:4rem; font-weight:700; margin-bottom:1rem; } 
-    .hero p { font-size:1.5rem; margin-bottom:2rem; }
+/* ================= Staff Cards ================= */
+.staff{
+  margin:auto;
+  background:#fff;
+  border-radius:2rem;
+  padding:2rem;
+  width:260px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  animation:fadeUp .8s ease forwards;
+  transition:.3s;
+}
+.staff:hover{transform:scale(1.07)}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes glow{
+  0%{box-shadow:0 0 15px gold}
+  50%{box-shadow:0 0 40px gold}
+  100%{box-shadow:0 0 15px gold}
+}
 
-    /* Feature Cards */
-    .feature-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; }
-    .card { background: rgba(255,255,255,0.95); border-radius:2rem; padding:2rem; text-align:center; box-shadow:0 8px 30px rgb(18, 167, 152); transition:transform 0.3s ease; color:#2cacd0; }
-    .card:hover { transform: translateY(-10px); }
-    .card-icon { width:4rem; height:4rem; margin:auto; background:#0a5f86; border-radius:1rem; display:flex; justify-content:center; align-items:center; color:#fff; margin-bottom:1rem; transition: all 0.3s ease; font-size:1.5rem; }
-    .card:hover .card-icon { transform: rotate(15deg) scale(1.1); }
-    .card h3 { font-size:2rem; font-weight:700; margin-bottom:0.5rem; }
-    .card p { font-size:1rem; }
+.owner{width:340px;border:4px solid gold;animation:glow 2.5s infinite}
+.founder{border:4px solid #8e44ad;width:300px}
+.admin-high{border:4px solid #e74c3c;width:280px}
+.admin-semi{border:4px solid #f39c12}
+.admin-mid{border:4px solid #2980b9}
+.admin-low{border:4px solid #27ae60}
 
-    /* Staff */
-    .staff-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; margin-top:3rem; }
-    .staff-card { background: rgba(255,255,255,0.95); border-radius:2rem; padding:2rem; text-align:center; box-shadow:0 8px 30px rgb(5, 131, 242); transition: all 0.3s ease; color:#1c69ad; }
-    .staff-card:hover { transform: translateY(-10px) scale(1.05); }
-    .staff-icon { width:6rem; height:6rem; margin:auto; background: #16b2c0; border-radius:1.5rem; display:flex; justify-content:center; align-items:center; color:#fff; margin-bottom:1rem; font-size:2rem; }
+.icon{
+  width:70px;height:70px;margin:auto auto 1rem;
+  border-radius:1.5rem;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;
+}
+.owner .icon{background:gold;color:#333}
+.founder .icon{background:#8e44ad}
+.admin-high .icon{background:#e74c3c}
+.admin-semi .icon{background:#f39c12}
+.admin-mid .icon{background:#2980b9}
+.admin-low .icon{background:#27ae60}
 
-    @media(max-width:768px){
-      .hero h2{font-size:3rem;}
-      .hero p{font-size:1.2rem;}
-      .card h3{font-size:1.5rem;}
-      .card p{font-size:0.9rem;}
-    }
-  </style>
+.staff h3{font-size:1.4rem}
+.staff p{font-weight:700}
+.row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+
+/* ================= Social ================= */
+.socials{
+  margin-top:4rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap
+}
+.social-btn{
+  display:flex;align-items:center;gap:.7rem;
+  padding:1rem 2.5rem;border-radius:40px;text-decoration:none;color:#fff;font-weight:700;transition:.4s;
+}
+.discord{background:#5865F2}
+.roblox{background:#111}
+.copy{background:#0c77a1;border:none;cursor:pointer}
+.social-btn:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+
+/* ================= Stats ================= */
+.stat h3{font-size:2rem}
+
+/* Mobile */
+@media(max-width:768px){
+  h1{font-size:2.2rem}
+  .staff,.owner,.founder{width:90%}
+}
+</style>
 </head>
+
 <body>
 
+<!-- ================= Splash ================= -->
+<div id="splash">
+  <h1>Legesty City</h1>
+  <p>تجربة رول بلاي احترافية</p>
+  <button id="enter">دخول</button>
+</div>
+
+<!-- ================= Main Content ================= -->
+<section id="main" style="opacity:0">
+
   <!-- Header -->
-  <header class="container">
-    <h1 id="site-title">ليحستي سيتي  </h1>
-    <nav>
-      <button onclick="scrollToSection('hero')" id="nav-home">الرئيسية</button>
-      <button onclick="scrollToSection('about')" id="nav-about">عن السيرفر</button>
-      <button onclick="scrollToSection('vision')" id="nav-vision">الرؤية والرسالة</button>
-      <button onclick="scrollToSection('staff')" id="nav-staff">المسؤولين</button>
+  <h1>Legesty City</h1>
+  <h2>الهيكل الإداري</h2>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero container">
-    <h2 id="hero-title">مرحبا بكم في  ليجستي سيتي</h2>
-    <p id="hero-text">   افضل سيرفر رول بلاي في روبلوكس من ناحيه برمجيه و اداريه  </p>
+  <!-- Owner -->
+  <div class="staff owner">
+    <div class="icon">👑</div>
+    <h3>SalehDev</h3>
+    <p>الأونر</p>
+  </div>
+  <div class="line"></div>
 
-    <div class="feature-cards">
-      <div class="card">
-        <div class="card-icon">🚨</div>
-        <h3 id="card1-title">20+</h3>
-        <p id="card1-text">الاداريين </p>
+  <!-- Founder -->
+  <div class="staff founder">
+    <div class="icon">🧰</div>
+    <h3>SXB226</h3>
+    <p>الفاوندر</p>
+  </div>
+  <div class="line"></div>
+
+  <!-- Admin High -->
+  <div class="staff admin-high">
+    <div class="icon">🚨</div>
+    <h3>wrtaha</h3>
+    <p>مسؤول الإدارة العليا</p>
+  </div>
+  <div class="line"></div>
+
+  <!-- Admin Semi -->
+  <div class="staff admin-semi">
+    <div class="icon">🛡️</div>
+    <h3>HXOOZL</h3>
+    <p>مسؤول شبه عليا</p>
+  </div>
+  <div class="line"></div>
+
+  <!-- Admin Mid + Low -->
+  <div class="row">
+    <div class="staff admin-mid">
+      <div class="icon">⚙️</div>
+      <h3>Scar00553</h3>
+      <p>مسؤول الإدارة الوسطى</p>
+    </div>
+    <div class="staff admin-low">
+      <div class="icon">🔰</div>
+      <h3>rip_abdo3mk6</h3>
+      <p>مسؤول الإدارة الصغرى</p>
+    </div>
+  </div>
+
+  <!-- Social -->
+  <div class="socials">
+    <a href="https://discord.gg/fm4" target="_blank" class="social-btn discord">
+      <i class="fa-brands fa-discord"></i> Discord
+    </a>
+    <button class="social-btn copy" onclick="copyDiscord()">
+      <i class="fa-solid fa-copy"></i> Copy Invite
+    </button>
+    <a href="https://www.roblox.com/share?code=d15a87f96f4761479903749cdc3001b7&type=ExperienceDetails&stamp=1767392319529"
+       target="_blank" class="social-btn roblox">
+      <i class="fa-brands fa-roblox"></i> Roblox Map
+    </a>
+  </div>
+
+  <!-- ================= Stats ================= -->
+  <section>
+    <h2>إحصائيات السيرفر</h2>
+    <div class="row">
+      <div class="staff admin-high stat">
+        <div class="icon">🛠️</div>
+        <h3 data-target="20">0</h3>
+        <p>عدد الإدارة</p>
       </div>
-      <div class="card">
-        <div class="card-icon">🧔</div>
-        <h3 id="card2-title">550+</h3>
-        <p id="card2-text">الاعببين</p>
+      <div class="staff admin-mid stat">
+        <div class="icon">🔥</div>
+        <h3 data-target="581">0</h3>
+        <p>اللاعبين النشطين</p>
       </div>
-      <div class="card">
-        <div class="card-icon">⭐</div>
-        <h3 id="card3-title">2024 - 2025 </h3>
-        <p id="card3-text">تم بناء هذه السيرفر </p>
+      <div class="staff admin-low stat">
+        <div class="icon">👥</div>
+        <h3 data-target="5388">0</h3>
+        <p>إجمالي اللاعبين</p>
       </div>
     </div>
   </section>
 
-  <!-- Staff Section -->
-  <section id="staff" class="container">
-    <h2 style="text-align:center; margin-top:3rem;" id="staff-title">فريق المسؤولين</h2>
-    <div class="staff-grid">
-      <div class="staff-card">
-        <div class="staff-icon">👑</div>
-        <h3 id="staff1-name"> صالح صلوحي </h3>
-        <p id="staff1-role"> الاونر و المسوول عن السيرفر</p>
-      </div>
-      <div class="staff-card">
-        <div class="staff-icon">🧰</div>
-        <h3 id="staff2-name"> باسل | SXB </h3>
-        <p id="staff2-role">الفاوندر </p>
-      </div>
-      <div class="staff-card">
-        <div class="staff-icon">🚨</div>
-        <h3 id="staff3-name"> ابوصالح  </h3>
-        <p id="staff3-role"> مسوؤل الاداره العليا </p>
-      </div>
+  <!-- ================= About ================= -->
+  <section>
+    <h2>نبذة عن LC</h2>
+    <div class="staff" style="max-width:900px;margin:auto">
+      <p style="font-size:1.2rem;line-height:2">
+        <strong>Legesty City</strong> هو أفضل سيرفر رول بلاي في روبلوكس من حيث
+        البرمجة، التنظيم، والإدارة الاحترافية.
+        <br><br>
+        السيرفر يعتمد على أنظمة متطورة، واقعية عالية،
+        وتجربة لعب ممتعة تنافس أقوى السيرفرات.
+        <br><br>
+        <strong>أفضل برمجة – أفضل أداء – أفضل إدارة</strong><br>
+        المبرمج الرئيسي:
+        <span style="color:gold;font-weight:700">SalehDev</span>
+      </p>
     </div>
   </section>
 
-  <script>
-    function scrollToSection(id)
-      document.getElementById(id).scrollIntoView({behavior:'smooth'});
-    
-  </script>
+<!-- ================= UPDATES ================= -->
+<section>
+  <h2>Updates | تسريبات السيرفر</h2>
+  <div class="row">
+    <!-- فيديو 1 -->
+    <div class="staff admin-mid" style="max-width:360px">
+      <iframe src="https://www.tiktok.com/embed/7590575313206119700" width="100%" height="400" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+      <p style="margin-top:1rem;font-weight:700">تسريب النظام الجديد</p>
+    </div>
+
+    <!-- فيديو 2 -->
+    <div class="staff admin-mid" style="max-width:360px">
+      <iframe src="https://www.tiktok.com/embed/ZS5S8N6Kj" width="100%" height="400" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+      <p style="margin-top:1rem;font-weight:700">تحديث الخريطة</p>
+    </div>
+
+    <!-- فيديو 3 -->
+    <div class="staff admin-mid" style="max-width:360px">
+      <iframe src="https://www.tiktok.com/embed/ZS5S8egBQ" width="100%" height="400" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+      <p style="margin-top:1rem;font-weight:700">نظام إداري قادم</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Scripts ================= -->
+<script>
+/* Splash */
+document.getElementById("enter").onclick=()=>{
+  document.getElementById("splash").classList.add("hide");
+  document.getElementById("main").style.opacity=1;
+};
+
+/* Copy Discord */
+function copyDiscord(){
+  navigator.clipboard.writeText("https://discord.gg/fm4");
+  alert("تم نسخ رابط الديسكورد ✅");
+}
+
+/* Counter */
+const counters = document.querySelectorAll("[data-target]");
+counters.forEach(counter=>{
+  let start = 0;
+  const target = +counter.dataset.target;
+  const speed = 40;
+  const update = ()=>{
+    start += Math.ceil(target / speed);
+    if(start < target){
+      counter.textContent = start.toLocaleString();
+      requestAnimationFrame(update);
+    } else {
+      counter.textContent = target.toLocaleString() + "+";
+    }
+  };
+  update();
+});
+</script>
 
 </body>
-</html>
+</html></html>
